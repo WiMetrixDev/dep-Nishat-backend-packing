@@ -20,11 +20,11 @@ pipeline {
                 {
                     
                     if (params.DEP_BRANCH == 'main') {
-                        env.IMAGE_NAME = "wimetrixcregistery/Nishat-backend-packing"
+                        env.IMAGE_NAME = "wimetrixcregistery/nishat-backend-packing"
                     } 
                     
                     else if (params.DEP_BRANCH == 'qa') {
-                        env.IMAGE_NAME = "wimetrixcregistery/Nishat-backend-packingqa"
+                        env.IMAGE_NAME = "wimetrixcregistery/nishat-backend-packingqa"
                     } 
                     
                     else {
