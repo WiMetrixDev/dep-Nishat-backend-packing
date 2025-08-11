@@ -8,7 +8,6 @@ pipeline {
         GIT_CREDENTIALS_ID = "GithubCredentials"
         SOURCE_REPO = "github.com/WiMetrixDev/sooperwizer.git"
         WORKSPACE_DIR = "/home/jenkins/deployment-package/wimetrix/Nishat-backend-packing"
-        DEPLOYMENT_YAML = "/home/jenkins/deployment-package/wimetrix/Nishat-backend-packing/deployments/deployment.yaml"
         GITHUB_REPO = 'github.com/WiMetrixDev/dep-Nishat-backend-packing.git'
 
     }
@@ -85,7 +84,7 @@ pipeline {
             def dockerfileDir = '/home/jenkins/deployment-package/wimetrix/Nishat-backend-packing/'
             def sourceDir = "${dockerfileDir}source"
             withCredentials([
-                        file(credentialsId: 'NISHAT_BACKEND_PACKING_ENV_PROD', variable: 'SECRET_FILE')
+                        file(credentialsId: 'NISHAT_BACKEND_COMMON_ENV_PROD', variable: 'SECRET_FILE')
                     ]){
 
                     sh label: '', script: '''
@@ -124,7 +123,7 @@ pipeline {
                         def githubPAT = env.GITHUB_ACTIONS
                         def githubOwner = "WiMetrixDev"  
                         def githubRepo = "dep-Nishat-backend-packing"  
-                        def githubWorkflow = "qa-deploy.yaml"  
+                        def githubWorkflow = "production-deploy.yaml"  
                         def branch = "main" 
 
                         def apiUrl = "https://api.github.com/repos/${githubOwner}/${githubRepo}/actions/workflows/${githubWorkflow}/dispatches"
