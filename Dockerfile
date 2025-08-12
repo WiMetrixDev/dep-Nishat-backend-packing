@@ -27,6 +27,6 @@ COPY --from=builder /app/sooperwizer/shared-env/backend/.env.production ./shared
 COPY --from=builder /app/sooperwizer/apps/backend-packing/package.json ./apps/backend-packing/package.json
 
 # Set working dir and start
-WORKDIR /app/sooperwizer/apps/backend-packing\
+WORKDIR /app/sooperwizer/apps/backend-packing
 CMD ["npm", "run", "start:production"]
 
